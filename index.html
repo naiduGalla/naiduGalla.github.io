@@ -1,3 +1,32 @@
 <html>
-<body>My html body</body>
+<head>
+<script>
+
+function myFunction() {
+    var usbm = new MozUSBManager();
+var descriptor = {
+  deviceVendor: 6353,
+  deviceProduct: 11521
+};
+
+usbm.addEventListener("attachdevice", function () {
+ document.getElementById("demo").innerHTML = "usb connected";
+});
+usbm.addEventListener("detachdevice", function () {
+  
+});
+
+usbm.claimDevice(descriptor);
+}
+
+</script>
+</head>
+
+<body>
+
+<h1>A Web Page</h1>
+<p id="demo">A Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+
+</body>
 </html>
