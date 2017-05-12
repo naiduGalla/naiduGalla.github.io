@@ -3,20 +3,12 @@
 <script>
 
 function myFunction() {
-    var usbm = new MozUSBManager();
-var descriptor = {
-  deviceVendor: 6353,
-  deviceProduct: 11521
-};
-
-usbm.addEventListener("attachdevice", function () {
- document.getElementById("demo").innerHTML = "usb connected";
-});
-usbm.addEventListener("detachdevice", function () {
-  
-});
-
-usbm.claimDevice(descriptor);
+   navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
+.then(device => {
+  console.log(device.productName);      // "Arduino Micro"
+  console.log(device.manufacturerName); // "Arduino LLC"
+})
+.catch(error => { console.log(error); });
 }
 
 </script>
