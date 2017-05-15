@@ -21,10 +21,9 @@ navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
 .catch(error => { console.log(error); });
 }
    
-   function checkPermission(){
+function checkPermission(){
    
-   // Check for Geolocation API permissions  
-navigator.permissions.query({name:'usb'})
+   navigator.permissions.query({name:'usb'})
   .then(function(permissionStatus) {  
     console.log('geolocation permission state is ', permissionStatus.state);
 
@@ -32,6 +31,8 @@ navigator.permissions.query({name:'usb'})
       console.log('geolocation permission state has changed to ', this.state);
     };
   });
+   
+}
   
 </script>
 </head>
