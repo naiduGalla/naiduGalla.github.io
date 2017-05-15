@@ -5,7 +5,7 @@
 function myFunction() {
 var device;
 
-navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
+navigator.usb.getDevices()
 .then(selectedDevice => {
    device = selectedDevice;
    
