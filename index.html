@@ -3,7 +3,8 @@
 <script>
 
 function myFunction() {
-  navigator.usb.requestDevice({ filters: [{ vendorId: 0x2341 }] })
+var device;
+  navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
 .then(selectedDevice => {
    device = selectedDevice;
      console.log("product name "+device.productName);     
