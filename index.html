@@ -1,20 +1,29 @@
 <html>
 <head>
 <script>
-
 function myFunction() {
 var device;
-
-navigator.usb.requestDevice({ filters: [{ vendorId: 0x18d1 }] })
+  navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
 .then(selectedDevice => {
    device = selectedDevice;
-   console.log(device.productName);      // "Arduino Micro"
-  console.log(device.manufacturerName); // "Arduino LLC"
+     console.log("product name "+device.productName);     
+  console.log("manufacturer "+device.manufacturerName); 
    return device.open(); // Begin a session.
  })
+.then(() => device.selectConfiguration(1)) // Select configuration #1 for the device.
+.then(() => device.controlTransferOut({
+    requestType: 'standard',
+    recipient: 'interface',
+    request: 0x34,
+    value: 0x01,
+    index: 0x0})) 
+//.then(() => device.transferIn(5, 64)) // Waiting for 64 bytes of data from endpoint #5.
+.then(result => {
+  let decoder = new TextDecoder();
+  console.log('Received: ' + decoder.decode(result.data));
+})
 .catch(error => { console.log(error); });
 }
-
 </script>
 </head>
 
@@ -23,6 +32,6 @@ navigator.usb.requestDevice({ filters: [{ vendorId: 0x18d1 }] })
 <h1>A Web Page</h1>
 <p id="demo">A Paragraph</p>
 <button type="button" onclick="myFunction()">Try it</button>
- 
+
 </body>
 </html>
