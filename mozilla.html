@@ -1,3 +1,8 @@
+<html>
+<head>
+<script>
+
+
 var usbm = new MozUSBManager();
 var descriptor = {
   deviceClass: 0,
@@ -8,10 +13,22 @@ var descriptor = {
 };
 
 usbm.addEventListener("attachdevice", function () {
-  // ...
+ console.log("attached");     
 });
 usbm.addEventListener("detachdevice", function () {
-  // ...
+  console.log("detached");  
 });
 
 usbm.claimDevice(descriptor);
+  
+  </script>
+</head>
+
+<body>
+
+<h1>A Web Page</h1>
+<p id="demo">A Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+
+</body>
+</html>
