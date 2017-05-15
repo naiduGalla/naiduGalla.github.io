@@ -19,6 +19,13 @@ var device;
     request: 0x34,
     value: 0x0,
     index: 0x0})) 
+	
+	.then(() => device.controlTransferOut({
+    requestType: 'standard',
+    recipient: 'device',
+    request: 0x35,
+    value: 0x0,
+    index: 0x0})) 
 //.then(() => device.transferIn(5, 64)) // Waiting for 64 bytes of data from endpoint #5.
 .then(result => {
   let decoder = new TextDecoder();
