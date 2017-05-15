@@ -6,7 +6,7 @@ function myFunction() {
    navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
 .then(device => {
   console.log("product name "+device.productName);      // "Arduino Micro"
-  console.log("manufacturer "+device.manufacturerName); // "Arduino LLC"
+ // console.log("manufacturer "+device.manufacturerName); // "Arduino LLC"
 })
 .catch(error => { console.log(error); });
 }
