@@ -13,12 +13,12 @@ var device;
  })
 .then(() => device.selectConfiguration(1)) // Select configuration #1 for the device.
 //.then(() => device.claimInterface(0)) // Request exclusive control over interface #2.
-.then(() =>{ device.controlTransferOut({
+.then(() => device.controlTransferOut({
     requestType: 0x40,
     
     request: 0x34,
     value: 0x01,
-    index: 0x0})) }
+    index: 0x0})) 
 //.then(() => device.transferIn(5, 64)) // Waiting for 64 bytes of data from endpoint #5.
 .then(result => {
   let decoder = new TextDecoder();
