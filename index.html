@@ -5,7 +5,7 @@
 function myFunction() {
 var device;
 
-navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
+navigator.usb.requestDevice({ filters: [{ vendorId: 0x046d }] })
 .then(selectedDevice => {
    device = selectedDevice;
    console.log(device.productName);      // "Arduino Micro"
