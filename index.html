@@ -6,6 +6,8 @@ function myFunction() {
 var device;
 
 //twizzler device vendor id 0x18D1
+   
+navigator.usb.get
 
 navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
 .then(selectedDevice => {
@@ -18,7 +20,19 @@ navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
 
 .catch(error => { console.log(error); });
 }
+   
+   function checkPermission(){
+   
+   // Check for Geolocation API permissions  
+navigator.permissions.query({name:'geolocation'})
+  .then(function(permissionStatus) {  
+    console.log('geolocation permission state is ', permissionStatus.state);
 
+    permissionStatus.onchange = function() {  
+      console.log('geolocation permission state has changed to ', this.state);
+    };
+  });
+   }
 </script>
 </head>
 
@@ -27,6 +41,6 @@ navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
 <h1>A Web Page</h1>
 <p id="demo">A Paragraph</p>
 <button type="button" onclick="myFunction()">Try it</button>
-
+   <button type="button" onClick="checkPermission()>">Check</button>
 </body>
 </html>
