@@ -1,0 +1,17 @@
+var usbm = new MozUSBManager();
+var descriptor = {
+  deviceClass: 0,
+  deviceSubClass: 0,
+  deviceProtocol: 0,
+  deviceVendor: 6353,
+  deviceProduct: 11521
+};
+
+usbm.addEventListener("attachdevice", function () {
+  // ...
+});
+usbm.addEventListener("detachdevice", function () {
+  // ...
+});
+
+usbm.claimDevice(descriptor);
