@@ -2,7 +2,7 @@
 <head>
 <script>
 
-
+function myFunction() {
 var usbm = new MozUSBManager();
 var descriptor = {
   deviceClass: 0,
@@ -19,7 +19,7 @@ usbm.addEventListener("detachdevice", function () {
   console.log("detached");  
 });
 
-usbm.claimDevice(descriptor);
+usbm.claimDevice(descriptor);}
   
   </script>
 </head>
