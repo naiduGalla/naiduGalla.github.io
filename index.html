@@ -5,19 +5,13 @@
 function myFunction() {
 var device;
 
-//twizzler device vendor id 0x18D1
-   
-//avigator.usb.get
-
-navigator.usb.requestDevice({ filters: [{ vendorId: 0x18D1 }] })
+navigator.usb.requestDevice({ filters: [{ vendorId: 0x2341 }] })
 .then(selectedDevice => {
    device = selectedDevice;
-   
-    console.log(device.productName);     
-    console.log(device.manufacturerName);
+   console.log(device.productName);      // "Arduino Micro"
+  console.log(device.manufacturerName); // "Arduino LLC"
    return device.open(); // Begin a session.
  })
-
 .catch(error => { console.log(error); });
 }
    
