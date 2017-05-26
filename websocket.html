@@ -38,13 +38,36 @@
                alert("WebSocket NOT supported by your Browser!");
             }
          }
+		 
+		
+	
+	function fetchDemo() {
+	
+	var myHeaders = new Headers();
+	myHeaders.append("Content-Type", "text/plain");
+	var URL='http://ip.jsontest.com/';
+
+var myInit = { 
+           mode: 'no-cors'
+                };
+ 
+ 
+ fetch(URL,myInit).then(function(response) {
+  console.log(response);
+});
+}
+	
+	
+
+		
+	
       </script>
 		
    </head>
    <body>
    
       <div id="sse">
-         <a href="javascript:WebSocketTest()">Run WebSocket</a>
+         <a href="javascript:fetchDemo()">Run WebSocket</a>
       </div>
       
    </body>
